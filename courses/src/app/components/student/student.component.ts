@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentComponent implements OnInit {
 
+  titulo: string = 'Listado de Estudiantes';
+
   constructor() { }
 
   ngOnInit(): void {
