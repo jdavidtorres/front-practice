@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './components/student/student.component';
 import { CourseComponent } from './components/course/course.component';
 import { ExamComponent } from './components/exam/exam.component';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ExamComponent } from './components/exam/exam.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
