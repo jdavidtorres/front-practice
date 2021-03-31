@@ -8,13 +8,15 @@ import { CourseComponent } from './components/course/course.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { LayoutModule } from './layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentFormComponent } from './components/student/student-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentComponent,
     CourseComponent,
-    ExamComponent
+    ExamComponent,
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
