@@ -3,8 +3,8 @@ import { Student } from "./student";
 
 export class Answer {
 
-  id:string;
-  text:string;
-  student:Student;
-  question:Question;
+  id: string;
+  text: string;
+  student: Student;
+  question: Question;
 }
