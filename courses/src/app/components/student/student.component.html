@@ -1,1 +1,19 @@
 <h1>{{ titulo }}</h1>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>nombre</th>
+      <th>apellido</th>
+      <th>email</th>
+      <th>creado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{student.name}}</td>
+      <td>{{student.lastname}}</td>
+      <td>{{student.email}}</td>
+      <td>{{student.createAt | date: 'dd/MM/yyyy'}}</td>
+    </tr>
+  </tbody>
+</table>
