@@ -9,7 +9,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class StudentComponent implements OnInit {
 
-  titulo = 'Listado de Estudiantes';
+  title = 'Listado de Estudiantes';
   students: Student[];
 
   constructor(private service: StudentService) { }
