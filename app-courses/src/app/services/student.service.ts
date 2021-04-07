@@ -9,7 +9,7 @@ import { Student } from '../models/student';
 export class StudentService {
 
   private baseEndpoint = 'http://localhost:8090/api/students';
-  private heders: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  private headersToSend: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
 
@@ -29,11 +29,11 @@ export class StudentService {
   }
 
   public save(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.baseEndpoint, student, { headers: this.heders });
+    return this.http.post<Student>(this.baseEndpoint, student, { headers: this.headersToSend });
   }
 
   public edit(student: Student): Observable<Student> {
-    return this.http.put<Student>(`${this.baseEndpoint}/${student.id}`, student, { headers: this.heders });
+    return this.http.put<Student>(`${this.baseEndpoint}/${student.id}`, student, { headers: this.headersToSend });
   }
 
   public delete(id: number): Observable<void> {
