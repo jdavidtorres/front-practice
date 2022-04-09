@@ -1,23 +1,26 @@
 <div class="card border-primary mb-3">
-    <div class="card-header">Listado de clientes</div>
-    <div class="card-body text-primary">
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-            <th>Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cliente of clientes">
-            <td>{{cliente.nombre}}</td>
-            <td>{{cliente.apellido}}</td>
-            <td>{{cliente.email}}</td>
-            <td>{{cliente.createAt}}</td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="card-header">Listado de clientes</div>
+  <div class="card-body text-primary">
+    <div class="my-2 text-left">
+      <button class="btn btn-primary" [routerLink]="['/clientes/form']">Crear cliente</button>
     </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{cliente.nombre}}</td>
+          <td>{{cliente.apellido}}</td>
+          <td>{{cliente.email}}</td>
+          <td>{{cliente.createAt}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
