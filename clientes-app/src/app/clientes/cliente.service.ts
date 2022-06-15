@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Cliente } from './cliente';
 
@@ -20,21 +20,22 @@ export class ClienteService {
 
   create(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.urlEndPoint, cliente, { headers: this.httpHeaders })
-    .pipe(
-      catchError(e => {
-        console.error(e.error.mensaje);
-        Swal.fire('Un error ha ocurrido', e.error.mensaje, 'error');
-        return throwError(() => e.error.mensaje);
-      })
-    );
+      .pipe(
+        map((response: any) => response.cliente as Cliente),
+        catchError(e => {
+          console.error(e.error.mensaje);
+          Swal.fire('Un error ha ocurrido', e.error.mensaje, 'error');
+          return throwError(() => e.error.mensaje);
+        })
+      );
   }
 
   getCliente(id: number): Observable<Cliente> {
     return this.http.get<Cliente>(`${this.urlEndPoint}/${id}`);
   }
 
-  update(cliente: Cliente): Observable<Cliente> {
-    return this.http.put<Cliente>(`${this.urlEndPoint}/${cliente.id}`, cliente, { headers: this.httpHeaders }).pipe(
+  update(cliente: Cliente): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}/${cliente.id}`, cliente, { headers: this.httpHeaders }).pipe(
       catchError(e => {
         console.error(e.error.mensaje);
         Swal.fire('Un error ha ocurrido', e.error.mensaje, 'error');
