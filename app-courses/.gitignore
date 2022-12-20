@@ -3,6 +3,8 @@
 /tmp
 /out-tsc
 /target
+.angular
+
 # Only exists if Bazel was run
 /bazel-out
 
