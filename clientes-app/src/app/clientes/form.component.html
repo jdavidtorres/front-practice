@@ -8,10 +8,10 @@
                     <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" required
                         minlength="4" #nombre="ngModel">
                     <div *ngIf="nombre.errors && (nombre.dirty || nombre.touched)" class="alert alert-danger">
-                        <div [hidden]="!nombre.errors.required">
+                        <div [hidden]="!nombre.errors?.['required']">
                             Nombre es requerido
                         </div>
-                        <div [hidden]="!nombre.errors.minlength">
+                        <div [hidden]="!nombre.errors?.['minlength']">
                             Nombre debe tener al menos 4 caracteres
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                 <div class="col-sm-6">
                     <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="apellido" required #apellido="ngModel">
                     <div *ngIf="apellido.errors && (apellido.dirty || apellido.touched)" class="alert alert-danger">
-                        <div [hidden]="!apellido.errors.required">
+                        <div [hidden]="!apellido.errors?.['required']">
                             Apellido es requerido
                         </div>
                     </div>
@@ -33,13 +33,13 @@
                 <div class="col-sm-6">
                     <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email" required email #email="ngModel" minlength="5">
                     <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-                        <div [hidden]="!email.errors.required">
+                        <div [hidden]="!email.errors?.['required']">
                             Email es requerido
                         </div>
-                        <div [hidden]="!email.errors.minlength">
+                        <div [hidden]="!email.errors?.['minlength']">
                             Email debe tener al menos 5 caracteres
                         </div>
-                        <div [hidden]="!email.errors.email">
+                        <div [hidden]="!email.errors?.['email']">
                             Email no es valido
                         </div>
                     </div>
