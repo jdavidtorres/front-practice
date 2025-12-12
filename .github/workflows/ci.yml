@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        node-version: ["20.x", "22.x"]
         project: [app-courses, clientes-app]
     steps:
       - name: Checkout repository
@@ -20,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: ${{ matrix["node-version"] }}
           cache: npm
           cache-dependency-path: ${{ matrix.project }}/package-lock.json
 
